@@ -44,7 +44,43 @@ The lab consists of:
 
 ## 🏗️ 4. Lab Architecture
 
-[Architecture diagram will be added here]
+┌──────────────────────┐
+                    │     Kali Linux       │
+                    │   Attack Simulation  │
+                    └──────────┬───────────┘
+                               │
+                               │ Controlled Attack
+                               ▼
+                    ┌──────────────────────┐
+                    │      Windows 11      │
+                    │   SOC Endpoint       │
+                    │                      │
+                    │  ┌────────────────┐  │
+                    │  │ Wazuh Agent    │  │
+                    │  │ Sysmon         │  │
+                    │  │ Event Logs     │  │
+                    │  └────────────────┘  │
+                    └──────────┬───────────┘
+                               │
+                         Security Logs
+                               │
+                               ▼
+                    ┌──────────────────────┐
+                    │    Ubuntu Server     │
+                    │                      │
+                    │   Wazuh Manager      │
+                    │   Wazuh Indexer      │
+                    │   Wazuh Dashboard    │
+                    └──────────┬───────────┘
+                               │
+                               ▼
+                    ┌──────────────────────┐
+                    │    SOC L1 Analyst    │
+                    │                      │
+                    │ Detection → Triage   │
+                    │ Investigation → IOC  │
+                    │ MITRE → Response     │
+                    └──────────────────────┘
 
 ## 🚨 5. Detection Use Cases
 
